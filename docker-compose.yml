@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+    database:
+        image: postgres:14.1
+        ports:
+            - "54321:5432"
+        environment:
+            - POSTGRES_DB=portal_template
+            - POSTGRES_USER=portal-template
+            - POSTGRES_PASSWORD=portal-template
