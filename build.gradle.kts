@@ -84,6 +84,8 @@ tasks.bootRun {
     dependsOn(tasks.composeUp) // bootrun starts a composeUp subtask
 }
 
+apply(from = "gradle/deployment.gradle")
+
  gradle.taskGraph.afterTask {
     if (this.name == "bootRun" && state.failure != null) { // gracefully stop the containers should bootRun task fail
         logger.log(LogLevel.WARN, "Stopping docker containers gracefully.")
