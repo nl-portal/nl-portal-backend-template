@@ -1,0 +1,63 @@
+ext {
+    dockerHostname = findProperty("DOCKER_HOSTNAME")
+    dockerRepositoryName = findProperty("DOCKER_REPO_NAME")
+    buildVersion = findProperty("SEM_VERSION")
+}
+
+// FUNCTIONS
+def removeDockerImage() {
+    "docker rmi -f ${dockerHostname}/${dockerRepositoryName}:${buildVersion}".execute()
+    println "Removed docker images"
+}
+
+// TASKS
+task deleteDeploymentDirBeforeBuild(type: Delete) {
+    delete 'deployment'
+}
+clean.dependsOn deleteDeploymentDirBeforeBuild
+
+bootJar {
+    archiveBaseName = "${archiveBaseName.get()}-${projectVersion}"
+}
+
+task copyFatJar(type: Copy, dependsOn: [deleteDeploymentDirBeforeBuild, bootJar]) {
+    from "build/libs"
+    into "deployment"
+    include bootJar.archiveFileName.get()
+}
+
+['war', 'bootWar', 'bootWarMainClassName'].each {
+    tasks.named(it) {
+        enabled = false
+    }
+}
+
+assemble.dependsOn copyFatJar
+
+task copyDockerfileToDeploymentContext(type: Copy) {
+    from 'docker'
+    into 'deployment'
+    include 'Dockerfile.template'
+
+    rename('Dockerfile.template', 'Dockerfile')
+
+    outputs.files file('deployment/Dockerfile')
+}
+
+task runDockerBuild(type: Exec, dependsOn: [copyDockerfileToDeploymentContext]) {
+    inputs.file(new File("deployment/${bootJar.archiveFileName.get()}"))
+    outputs.upToDateWhen {
+        // let execution of this task depend only on the input: if the JAR has changed
+        return true
+    }
+
+    commandLine 'docker', 'build', '-t', "${dockerHostname}/${dockerRepositoryName}:${buildVersion}", '-f', "deployment${File.separator}Dockerfile", 'deployment'
+}
+
+task pushImage(type: Exec, dependsOn: [runDockerBuild]) {
+    commandLine 'docker', 'push', "${dockerHostname}/${dockerRepositoryName}:${buildVersion}"
+
+    doLast {
+        removeDockerImage()
+    }
+}
