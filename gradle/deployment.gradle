@@ -1,7 +1,7 @@
 ext {
-    dockerHostname = findProperty("DOCKER_HOSTNAME")
-    dockerRepositoryName = findProperty("DOCKER_REPO_NAME")
-    buildVersion = findProperty("SEM_VERSION")
+    dockerHostname = System.getenv("ECR_HOSTNAME")
+    dockerRepositoryName = System.getenv("ECR_REPO_NAME")
+    buildVersion = System.getenv("VERSION")
 }
 
 // FUNCTIONS
@@ -26,20 +26,12 @@ task copyFatJar(type: Copy, dependsOn: [deleteDeploymentDirBeforeBuild, bootJar]
     include bootJar.archiveFileName.get()
 }
 
-['war', 'bootWar', 'bootWarMainClassName'].each {
-    tasks.named(it) {
-        enabled = false
-    }
-}
-
 assemble.dependsOn copyFatJar
 
 task copyDockerfileToDeploymentContext(type: Copy) {
     from 'docker'
     into 'deployment'
-    include 'Dockerfile.template'
-
-    rename('Dockerfile.template', 'Dockerfile')
+    include 'Dockerfile'
 
     outputs.files file('deployment/Dockerfile')
 }
@@ -59,5 +51,14 @@ task pushImage(type: Exec, dependsOn: [runDockerBuild]) {
 
     doLast {
         removeDockerImage()
+    }
+}
+
+springBoot {
+    buildInfo {
+        properties {
+            it.setVersion(projectVersion)
+            it.setGroup(projectGroup)
+        }
     }
 }
