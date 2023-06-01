@@ -17,19 +17,13 @@ task deleteDeploymentDirBeforeBuild(type: Delete) {
 clean.dependsOn deleteDeploymentDirBeforeBuild
 
 bootJar {
-    archiveBaseName = "${archiveBaseName.get()}-${projectVersion}"
+    archiveBaseName = "${archiveBaseName.get()}-${version}"
 }
 
 task copyFatJar(type: Copy, dependsOn: [deleteDeploymentDirBeforeBuild, bootJar]) {
     from "build/libs"
     into "deployment"
     include bootJar.archiveFileName.get()
-}
-
-['war', 'bootWar', 'bootWarMainClassName'].each {
-    tasks.named(it) {
-        enabled = false
-    }
 }
 
 assemble.dependsOn copyFatJar
