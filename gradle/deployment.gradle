@@ -17,7 +17,7 @@ task deleteDeploymentDirBeforeBuild(type: Delete) {
 clean.dependsOn deleteDeploymentDirBeforeBuild
 
 bootJar {
-    archiveBaseName = "${archiveBaseName.get()}-${version}"
+    archiveBaseName = "${archiveBaseName.get()}"
 }
 
 task copyFatJar(type: Copy, dependsOn: [deleteDeploymentDirBeforeBuild, bootJar]) {

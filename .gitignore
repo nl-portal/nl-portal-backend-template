@@ -3,3 +3,4 @@
 build/
 deployment/
 .env.properties
+derby.log

@@ -23,7 +23,7 @@ spring:
 
 graphql:
     packages:
-        - "com.ritense.valtimo.portal"
+        - "com.ritense.portal"
 logging:
     level:
         org:
