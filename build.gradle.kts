@@ -36,27 +36,25 @@ java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
-    maven { url = uri("https://repo.ritense.com/repository/maven-snapshots/") }
-    maven { url = uri("https://repo.ritense.com/repository/maven-releases/") }
     maven { url = uri("https://plugins.gradle.org/m2/") }
 }
 
 dependencies {
     // Valtimo
-    implementation("com.ritense.valtimo.portal:case:wip-keycloak-user-authentication-11")
-    implementation("com.ritense.valtimo.portal:form:wip-keycloak-user-authentication-11")
-    implementation("com.ritense.valtimo.portal:graphql:wip-keycloak-user-authentication-11")
-    implementation("com.ritense.valtimo.portal:zaak:wip-keycloak-user-authentication-11")
-    implementation("com.ritense.valtimo.portal:core:wip-keycloak-user-authentication-11")
-    implementation("com.ritense.valtimo.portal:data:wip-keycloak-user-authentication-11")
-    implementation("com.ritense.valtimo.portal:form-flow:wip-keycloak-user-authentication-11")
-    implementation("com.ritense.valtimo.portal:haalcentraal:wip-keycloak-user-authentication-11")
-    implementation("com.ritense.valtimo.portal:klant:wip-keycloak-user-authentication-11")
-    implementation("com.ritense.valtimo.portal:messaging:wip-keycloak-user-authentication-11")
-    implementation("com.ritense.valtimo.portal:product:wip-keycloak-user-authentication-11")
-    implementation("com.ritense.valtimo.portal:task:wip-keycloak-user-authentication-11")
-    implementation("com.ritense.valtimo.portal:common-ground-authentication:wip-keycloak-user-authentication-11")
-    implementation("com.ritense.valtimo.portal:common-ground-authentication-test:wip-keycloak-user-authentication-11")
+    implementation("nl.nl-portal:case:1.0.8.RELEASE")
+    implementation("nl.nl-portal:form:1.0.8.RELEASE")
+    implementation("nl.nl-portal:graphql:1.0.8.RELEASE")
+    implementation("nl.nl-portal:zaak:1.0.8.RELEASE")
+    implementation("nl.nl-portal:core:1.0.8.RELEASE")
+    implementation("nl.nl-portal:data:1.0.8.RELEASE")
+    implementation("nl.nl-portal:form-flow:1.0.8.RELEASE")
+    implementation("nl.nl-portal:haalcentraal:1.0.8.RELEASE")
+    implementation("nl.nl-portal:klant:1.0.8.RELEASE")
+    implementation("nl.nl-portal:messaging:1.0.8.RELEASE")
+    implementation("nl.nl-portal:product:1.0.8.RELEASE")
+    implementation("nl.nl-portal:task:1.0.8.RELEASE")
+    implementation("nl.nl-portal:common-ground-authentication:1.0.8.RELEASE")
+    implementation("nl.nl-portal:common-ground-authentication-test:1.0.8.RELEASE")
 
     // Spring
     implementation("org.springframework.boot:spring-boot-starter")
