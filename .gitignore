@@ -3,4 +3,4 @@
 build/
 deployment/
 .env.properties
-**/**.log
+**/*.log
