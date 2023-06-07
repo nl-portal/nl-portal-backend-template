@@ -3,7 +3,7 @@ server:
 
 spring:
     application:
-    name: portal-backend-template
+        name: portal-backend-template
     security:
         oauth2:
             resourceserver:
