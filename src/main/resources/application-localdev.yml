@@ -21,6 +21,7 @@ spring:
 graphql:
     packages:
         - "com.ritense.portal"
+
 logging:
     level:
         org:
