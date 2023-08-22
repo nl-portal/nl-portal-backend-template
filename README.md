@@ -28,3 +28,28 @@ You can stop or restart the process via the respective buttons in the UI of your
 
 The database container is stopped when the ```bootRun``` task fails executing (also happens when you stop the program from running in the IDE)
 
+# Forking & Merging the template in your own repository
+To receive template updates with changes to for example dependency versions, use the following steps:
+
+## Forking
+If you want your forked repository to not be public, you need to use github import instead of using a github fork [GitHub fork does not allow changing the repository visibility]
+For making an import: [Link](https://docs.github.com/en/migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer)
+
+## Merging / updating
+First time setup:
+```
+git clone https://github.com/Gemeente-DenHaag/my-nl-portal-backend.git
+cd .\my-nl-portal-backend\
+git branch -a
+git remote add template https://github.com/nl-portal/nl-portal-backend-template.git
+git remote -v
+git fetch template
+git branch -a
+```
+
+To update:
+```
+git fetch template main
+git merge template/main
+git push
+```
