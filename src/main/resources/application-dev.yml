@@ -17,10 +17,7 @@ spring:
         url: #externaly overwritten
         username: #externaly overwritten
         password: #externaly overwritten
-
-graphql:
-    packages:
-        - "com.ritense.portal"
+        password: #externaly overwritten
 
 logging:
     level:
@@ -39,3 +36,8 @@ valtimo:
                 allowedHeaders: "*"
                 allowedOrigins: "*"
                 allowedMethods: "*"
+    objectsapi:
+        url: http://localhost:8010
+        token: cd63e158f3aca276ef284e3033d020a22899c728
+        task:
+            typeUrl: http://host.docker.internal:8011/api/v1/objecttypes/3e852115-277a-4570-873a-9a64be3aeb34
