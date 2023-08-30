@@ -42,6 +42,7 @@ dependencies {
     implementation("nl.nl-portal:form:0.1.0.RELEASE")
     implementation("nl.nl-portal:graphql:0.1.0.RELEASE")
     implementation("nl.nl-portal:zaak:0.1.0.RELEASE")
+    implementation("nl.nl-portal:taak:0.1.0.RELEASE")
     implementation("nl.nl-portal:core:0.1.0.RELEASE")
     implementation("nl.nl-portal:data:0.1.0.RELEASE")
     implementation("nl.nl-portal:form-flow:0.1.0.RELEASE")
