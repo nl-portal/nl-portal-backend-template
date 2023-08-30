@@ -18,10 +18,6 @@ spring:
         username: #externaly overwritten
         password: #externaly overwritten
 
-graphql:
-    packages:
-        - "com.ritense.portal"
-
 logging:
     level:
         org:
