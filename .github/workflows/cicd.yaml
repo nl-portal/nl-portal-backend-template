@@ -14,7 +14,7 @@ on:
 
 env:
     GITHUB_REGISTRY: ghcr.io
-    DOCKER_IMAGE_NAME: <docker_image_name>
+    DOCKER_IMAGE_NAME: nl-portal-backend
     GITHUB_NAMESPACE: nl-portal
 
 jobs:
