@@ -37,26 +37,26 @@ repositories {
 }
 
 dependencies {
-    implementation("nl.nl-portal:case:0.2.2.RELEASE")
-    implementation("nl.nl-portal:form:0.2.2.RELEASE")
-    implementation("nl.nl-portal:graphql:0.2.2.RELEASE")
+    implementation("nl.nl-portal:case:0.3.0.RELEASE")
+    implementation("nl.nl-portal:form:0.3.0.RELEASE")
+    implementation("nl.nl-portal:graphql:0.3.0.RELEASE")
 
     //zgw
-    implementation("nl.nl-portal:zaken-api:0.2.2.RELEASE")
-    implementation("nl.nl-portal:documenten-api:0.2.2.RELEASE")
-    implementation("nl.nl-portal:catalogi-api:0.2.2.RELEASE")
-    implementation("nl.nl-portal:objectenapi:0.2.2.RELEASE")
-    implementation("nl.nl-portal:taak:0.2.2.RELEASE")
+    implementation("nl.nl-portal:zaken-api:0.3.0.RELEASE")
+    implementation("nl.nl-portal:documenten-api:0.3.0.RELEASE")
+    implementation("nl.nl-portal:catalogi-api:0.3.0.RELEASE")
+    implementation("nl.nl-portal:objectenapi:0.3.0.RELEASE")
+    implementation("nl.nl-portal:taak:0.3.0.RELEASE")
 
-    implementation("nl.nl-portal:core:0.2.2.RELEASE")
-    implementation("nl.nl-portal:data:0.2.2.RELEASE")
-    implementation("nl.nl-portal:form-flow:0.2.2.RELEASE")
-    implementation("nl.nl-portal:haalcentraal-brp:0.2.2.RELEASE")
-    implementation("nl.nl-portal:klant:0.2.2.RELEASE")
-    implementation("nl.nl-portal:messaging:0.2.2.RELEASE")
-    implementation("nl.nl-portal:product:0.2.2.RELEASE")
-    implementation("nl.nl-portal:common-ground-authentication:0.2.2.RELEASE")
-    implementation("nl.nl-portal:common-ground-authentication-test:0.2.2.RELEASE")
+    implementation("nl.nl-portal:core:0.3.0.RELEASE")
+    implementation("nl.nl-portal:data:0.3.0.RELEASE")
+    implementation("nl.nl-portal:form-flow:0.3.0.RELEASE")
+    implementation("nl.nl-portal:haalcentraal-brp:0.3.0.RELEASE")
+    implementation("nl.nl-portal:klant:0.3.0.RELEASE")
+    implementation("nl.nl-portal:messaging:0.3.0.RELEASE")
+    implementation("nl.nl-portal:product:0.3.0.RELEASE")
+    implementation("nl.nl-portal:common-ground-authentication:0.3.0.RELEASE")
+    implementation("nl.nl-portal:common-ground-authentication-test:0.3.0.RELEASE")
 
     // Spring
     implementation("org.springframework.boot:spring-boot-starter")
