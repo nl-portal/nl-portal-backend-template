@@ -17,7 +17,7 @@ apply("gradle/test.gradle.kts")
 
 
 sourceSets {
-    this.getByName("main"){
+    this.getByName("main") {
         this.java.srcDir("src/main/java")
         this.java.srcDir("src/main/kotlin")
     }
@@ -34,9 +34,17 @@ java.sourceCompatibility = JavaVersion.VERSION_17
 repositories {
     mavenCentral()
     maven { url = uri("https://plugins.gradle.org/m2/") }
+    maven {
+        url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        mavenContent {snapshotsOnly()}
+    }
 }
 
-val backend_libraries_version = "0.3.0.RELEASE"
+val backend_libraries_release_version = "0.3.0.RELEASE"
+val backend_libraries_version = if (hasProperty("libraryVersionOverride")) {
+    println("Custom library version found!\r\nLibrary version overriden to ${property("libraryVersionOverride")}")
+    property("libraryVersionOverride")
+} else backend_libraries_release_version
 
 dependencies {
     implementation("nl.nl-portal:case:$backend_libraries_version")
