@@ -34,6 +34,10 @@ java.sourceCompatibility = JavaVersion.VERSION_17
 repositories {
     mavenCentral()
     maven { url = uri("https://plugins.gradle.org/m2/") }
+    maven {
+        url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        mavenContent {snapshotsOnly()}
+    }
 }
 
 val backend_libraries_release_version = "0.3.0.RELEASE"
