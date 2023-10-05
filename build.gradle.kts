@@ -38,6 +38,13 @@ repositories {
         url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
         mavenContent {snapshotsOnly()}
     }
+    maven {
+        url = uri("https://maven.pkg.github.com/nl-portal/nl-portal-backend-libraries")
+        credentials(HttpHeaderCredentials::class) {
+            name = "Authorization"
+            value = "Bearer ${project.findProperty("gpr.token") as String? ?: System.getenv("GRP_TOKEN")}"
+        }
+    }
 }
 
 val backend_libraries_release_version = "0.3.0.RELEASE"
