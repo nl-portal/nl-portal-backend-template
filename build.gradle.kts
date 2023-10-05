@@ -40,9 +40,9 @@ repositories {
     }
     maven {
         url = uri("https://maven.pkg.github.com/nl-portal/nl-portal-backend-libraries")
-        credentials(HttpHeaderCredentials::class) {
-            name = "Authorization"
-            value = "Bearer ${project.findProperty("gpr.token") as String? ?: System.getenv("GRP_TOKEN")}"
+        credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("GRP_USER")
+            password = project.findProperty("gpr.key") ?: System.getenv("GRP_TOKEN")
         }
     }
 }
