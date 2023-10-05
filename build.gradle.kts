@@ -72,6 +72,7 @@ dependencies {
     implementation("nl.nl-portal:klant:$backend_libraries_version")
     if (!backend_libraries_version!!.equals("0.3.0.RELEASE")) {
         implementation("nl.nl-portal:klant-generiek:$backend_libraries_version")
+        implementation("nl.nl-portal:klantcontactmomenten:$backend_libraries_version")
     }
     implementation("nl.nl-portal:messaging:$backend_libraries_version")
     implementation("nl.nl-portal:product:$backend_libraries_version")
@@ -84,6 +85,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux:3.0.5")
     implementation("org.springframework.security.oauth:spring-security-oauth2:2.5.2.RELEASE")
 
+    // Kotlin logger
+    implementation("io.github.microutils:kotlin-logging:3.0.4")
 
     // Postgres
     implementation("org.postgresql:postgresql")
