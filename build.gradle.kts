@@ -48,10 +48,12 @@ repositories {
 }
 
 val backend_libraries_release_version = "0.3.0.RELEASE"
-val backend_libraries_version = if (hasProperty("libraryVersionOverride")) {
-    println("Custom library version found!\r\nLibrary version overriden to ${property("libraryVersionOverride")}")
-    property("libraryVersionOverride")
-} else backend_libraries_release_version
+val backend_libraries_version = if(project.hasProperty("libraryVersion") && project.property("libraryVersion").toString().trim() != "" ) {
+    project.property("libraryVersion")
+} else {
+    backend_libraries_release_version
+}
+println("Version of nl-portal-backend-libraries '${backend_libraries_version}' will be deployed")
 
 dependencies {
     implementation("nl.nl-portal:case:$backend_libraries_version")
