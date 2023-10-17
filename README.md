@@ -58,6 +58,6 @@ git push
 If you want to use a different (snapshot) version of the nl-portal-backend-libraries you can overwrite the dependency version using Gradle properties.
 For example:
 
-`gradle build -PlibraryVersionOverride="9.9.9.SNAPSHOT"`
+`gradle build -PlibraryVersion="9.9.9.SNAPSHOT"`
 
 Please refer to the [Gradle documentation](https://docs.gradle.org/current/userguide/build_environment.html#sec:project_properties) for other ways of setting properties.
