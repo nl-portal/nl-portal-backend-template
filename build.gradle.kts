@@ -47,7 +47,7 @@ repositories {
     }
 }
 
-val backend_libraries_release_version = "0.3.0.RELEASE"
+val backend_libraries_release_version = "1.1.0"
 val backend_libraries_version = if(project.hasProperty("libraryVersion") && project.property("libraryVersion").toString().trim() != "" ) {
     project.property("libraryVersion")
 } else {
