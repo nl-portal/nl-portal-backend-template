@@ -71,8 +71,9 @@ dependencies {
     implementation("nl.nl-portal:data:$backend_libraries_version")
     implementation("nl.nl-portal:form-flow:$backend_libraries_version")
     implementation("nl.nl-portal:haalcentraal-all:$backend_libraries_version")
-    implementation("nl.nl-portal:haalcentraal-brp:$backend_libraries_version")
-    implementation("nl.nl-portal:haalcentraal-hr:$backend_libraries_version")
+    // Below haalcentraal dependencies are implicitly added via haalcentraal-all
+    // implementation("nl.nl-portal:haalcentraal-brp:$backend_libraries_version")
+    // implementation("nl.nl-portal:haalcentraal-hr:$backend_libraries_version")
     implementation("nl.nl-portal:klant:$backend_libraries_version")
     if (!backend_libraries_version!!.equals("0.3.0.RELEASE")) {
         implementation("nl.nl-portal:klant-generiek:$backend_libraries_version")
