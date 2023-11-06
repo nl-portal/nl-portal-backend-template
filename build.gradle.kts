@@ -47,7 +47,7 @@ repositories {
     }
 }
 
-val backend_libraries_release_version = "1.1.0"
+val backend_libraries_release_version = "1.1.1"
 val backend_libraries_version = if(project.hasProperty("libraryVersion") && project.property("libraryVersion").toString().trim() != "" ) {
     project.property("libraryVersion")
 } else {
@@ -70,7 +70,10 @@ dependencies {
     implementation("nl.nl-portal:core:$backend_libraries_version")
     implementation("nl.nl-portal:data:$backend_libraries_version")
     implementation("nl.nl-portal:form-flow:$backend_libraries_version")
-    implementation("nl.nl-portal:haalcentraal-brp:$backend_libraries_version")
+    implementation("nl.nl-portal:haalcentraal-all:$backend_libraries_version")
+    // Below haalcentraal dependencies are implicitly added via haalcentraal-all
+    // implementation("nl.nl-portal:haalcentraal-brp:$backend_libraries_version")
+    // implementation("nl.nl-portal:haalcentraal-hr:$backend_libraries_version")
     implementation("nl.nl-portal:klant:$backend_libraries_version")
     if (!backend_libraries_version!!.equals("0.3.0.RELEASE")) {
         implementation("nl.nl-portal:klant-generiek:$backend_libraries_version")
