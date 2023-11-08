@@ -69,7 +69,6 @@ dependencies {
 
     implementation("nl.nl-portal:core:$backend_libraries_version")
     implementation("nl.nl-portal:data:$backend_libraries_version")
-    implementation("nl.nl-portal:form-flow:$backend_libraries_version")
     implementation("nl.nl-portal:haalcentraal-all:$backend_libraries_version")
     // Below haalcentraal dependencies are implicitly added via haalcentraal-all
     // implementation("nl.nl-portal:haalcentraal-brp:$backend_libraries_version")
