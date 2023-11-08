@@ -54,10 +54,22 @@ git merge template/main
 git push
 ```
 
-## Using snapshot versions of backend-libraries
+# Using snapshot versions of backend-libraries
+## Build with different library version
 If you want to use a different (snapshot) version of the nl-portal-backend-libraries you can overwrite the dependency version using Gradle properties.
 For example:
 
 `gradle build -PlibraryVersion="9.9.9.SNAPSHOT"`
 
 Please refer to the [Gradle documentation](https://docs.gradle.org/current/userguide/build_environment.html#sec:project_properties) for other ways of setting properties.
+
+## Configuring the snapshot repository
+Snapshots of the backend libraries are built as GitHub actions.
+To connect to the snapshot repository `GRP_USER` and `GRP_TOKEN` need to be set as property or as environment variable for authorisation to the repository. Choose the best option on your automation tooling & way of working.
+
+For local development you can run the following powershell commands:
+```
+$env:GRP_USER="myUser" 
+$env:GRP_TOKEN="myToken"
+gradle build -PlibraryVersionOverride="1.0.96-SNAPSHOT"
+```
