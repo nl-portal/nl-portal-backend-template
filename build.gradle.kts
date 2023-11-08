@@ -3,14 +3,14 @@ buildscript {
 }
 
 plugins {
-    id("org.springframework.boot") version "2.6.6"
-    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("org.springframework.boot") version "3.1.5"
+    id("io.spring.dependency-management") version "1.1.3"
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.6.10"
-    id("org.jetbrains.kotlin.plugin.jpa") version "1.6.10"
+    id("org.jetbrains.kotlin.jvm") version "1.9.20"
+    id("org.jetbrains.kotlin.plugin.jpa") version "1.9.20"
     //IntelliJ IDEA
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.1"
-    id("org.jetbrains.kotlin.plugin.spring") version "1.6.10"
+    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
+    id("org.jetbrains.kotlin.plugin.spring") version "1.9.10"
 }
 
 apply("gradle/test.gradle.kts")
@@ -87,11 +87,11 @@ dependencies {
     // Spring
     implementation("org.springframework.boot:spring-boot-starter")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    implementation("org.springframework.boot:spring-boot-starter-webflux:3.0.5")
+    implementation("org.springframework.boot:spring-boot-starter-webflux:3.1.5")
     implementation("org.springframework.security.oauth:spring-security-oauth2:2.5.2.RELEASE")
 
     // Kotlin logger
-    implementation("io.github.microutils:kotlin-logging:3.0.4")
+    implementation("io.github.microutils:kotlin-logging:3.0.5")
 
     // Postgres
     implementation("org.postgresql:postgresql")
