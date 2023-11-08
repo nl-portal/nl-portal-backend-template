@@ -71,5 +71,5 @@ For local development you can run the following powershell commands:
 ```
 $env:GRP_USER="myUser" 
 $env:GRP_TOKEN="myToken"
-gradle build -PlibraryVersionOverride="1.0.96-SNAPSHOT"
+gradle build -PlibraryVersion="1.0.96-SNAPSHOT"
 ```
