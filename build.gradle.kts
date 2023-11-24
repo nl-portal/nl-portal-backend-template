@@ -27,7 +27,7 @@ tasks.compileKotlin {
     kotlinOptions.jvmTarget = "17"
 }
 
-group = "com.ritense.valtimo.portal"
+group = "nl.nlportal.backend"
 version = "1.0"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
