@@ -10,7 +10,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.jpa") version "1.9.20"
     //IntelliJ IDEA
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
-    id("org.jetbrains.kotlin.plugin.spring") version "1.9.10"
+    id("org.jetbrains.kotlin.plugin.spring") version "1.9.21"
 }
 
 apply("gradle/test.gradle.kts")
