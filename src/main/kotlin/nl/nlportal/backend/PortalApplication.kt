@@ -1,4 +1,4 @@
-package com.ritense.valtimo.portal
+package nl.nlportal.backend
 
 import java.net.InetAddress
 import mu.KotlinLogging
@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.core.env.Environment
 import org.springframework.scheduling.annotation.EnableScheduling
-
 
 @EnableScheduling
 @SpringBootApplication
