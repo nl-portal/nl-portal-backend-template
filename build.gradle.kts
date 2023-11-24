@@ -4,13 +4,13 @@ buildscript {
 
 plugins {
     id("org.springframework.boot") version "3.1.5"
-    id("io.spring.dependency-management") version "1.1.3"
+    id("io.spring.dependency-management") version "1.1.4"
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.9.20"
-    id("org.jetbrains.kotlin.plugin.jpa") version "1.9.20"
+    id("org.jetbrains.kotlin.jvm") version "1.9.21"
+    id("org.jetbrains.kotlin.plugin.jpa") version "1.9.21"
     //IntelliJ IDEA
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
-    id("org.jetbrains.kotlin.plugin.spring") version "1.9.10"
+    id("org.jetbrains.kotlin.plugin.spring") version "1.9.21"
 }
 
 apply("gradle/test.gradle.kts")
@@ -27,7 +27,7 @@ tasks.compileKotlin {
     kotlinOptions.jvmTarget = "17"
 }
 
-group = "com.ritense.valtimo.portal"
+group = "nl.nlportal.backend"
 version = "1.0"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
