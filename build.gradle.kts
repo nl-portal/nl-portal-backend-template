@@ -3,7 +3,7 @@ buildscript {
 }
 
 plugins {
-    id("org.springframework.boot") version "3.1.5"
+    id("org.springframework.boot") version "3.2.0"
     id("io.spring.dependency-management") version "1.1.4"
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.9.21"
@@ -24,12 +24,12 @@ sourceSets {
 }
 
 tasks.compileKotlin {
-    kotlinOptions.jvmTarget = "17"
+    kotlinOptions.jvmTarget = "21"
 }
 
 group = "nl.nlportal.backend"
 version = "1.0"
-java.sourceCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_21
 
 repositories {
     mavenCentral()
