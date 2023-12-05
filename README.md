@@ -4,7 +4,7 @@ This is the backend of the portal template
 # Prerequisites
 
 ### Required software
-* **JDK 17**
+* **JDK 21**
 * **Docker Desktop**
 * Portal Frontend: TBD
 * Nl Portal docker compose: https://github.com/nl-portal/nl-portal-docker-compose
