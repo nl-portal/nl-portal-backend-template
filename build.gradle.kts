@@ -25,9 +25,11 @@ sourceSets {
 
 tasks.compileKotlin {
     kotlinOptions.jvmTarget = "21"
+    kotlinOptions.apiVersion = "2.1"
+    kotlinOptions.languageVersion = "2.1"
 }
 
-group = "nl.nlportal.backend"
+group = "nl.nl-portal.backend"
 version = "1.0"
 java.sourceCompatibility = JavaVersion.VERSION_21
 
