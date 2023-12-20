@@ -8,13 +8,15 @@ plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.9.21"
     id("org.jetbrains.kotlin.plugin.jpa") version "1.9.21"
-    //IntelliJ IDEA
+    // IntelliJ IDEA
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
     id("org.jetbrains.kotlin.plugin.spring") version "1.9.21"
+
+    // Linting
+    id("org.jlleitschuh.gradle.ktlint") version "12.0.3"
 }
 
 apply("gradle/test.gradle.kts")
-
 
 sourceSets {
     this.getByName("main") {
@@ -38,7 +40,7 @@ repositories {
     maven { url = uri("https://plugins.gradle.org/m2/") }
     maven {
         url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-        mavenContent {snapshotsOnly()}
+        mavenContent { snapshotsOnly() }
     }
     maven {
         url = uri("https://maven.pkg.github.com/nl-portal/nl-portal-backend-libraries")
@@ -49,12 +51,17 @@ repositories {
     }
 }
 
-val backend_libraries_release_version = "1.3.0"
-val backend_libraries_version = if(project.hasProperty("libraryVersion") && project.property("libraryVersion").toString().trim() != "" ) {
-    project.property("libraryVersion")
-} else {
-    backend_libraries_release_version
+allprojects {
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
 }
+
+val backend_libraries_release_version = "1.3.0"
+val backend_libraries_version =
+    if (project.hasProperty("libraryVersion") && project.property("libraryVersion").toString().trim() != "") {
+        project.property("libraryVersion")
+    } else {
+        backend_libraries_release_version
+    }
 println("Version of nl-portal-backend-libraries '${backend_libraries_version}' will be deployed")
 
 dependencies {
@@ -62,7 +69,7 @@ dependencies {
     implementation("nl.nl-portal:form:$backend_libraries_version")
     implementation("nl.nl-portal:graphql:$backend_libraries_version")
 
-    //zgw
+    // zgw
     implementation("nl.nl-portal:zaken-api:$backend_libraries_version")
     implementation("nl.nl-portal:documenten-api:$backend_libraries_version")
     implementation("nl.nl-portal:catalogi-api:$backend_libraries_version")
@@ -101,5 +108,4 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
-
 apply(from = "gradle/deployment.gradle")
