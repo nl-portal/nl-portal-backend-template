@@ -3,7 +3,7 @@ buildscript {
 }
 
 plugins {
-    id("org.springframework.boot") version "3.2.0"
+    id("org.springframework.boot") version "3.2.1"
     id("io.spring.dependency-management") version "1.1.4"
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.9.21"
@@ -95,7 +95,7 @@ dependencies {
     // Spring
     implementation("org.springframework.boot:spring-boot-starter")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    implementation("org.springframework.boot:spring-boot-starter-webflux:3.2.0")
+    implementation("org.springframework.boot:spring-boot-starter-webflux:3.2.1")
     implementation("org.springframework.security.oauth:spring-security-oauth2:2.5.2.RELEASE")
 
     // Kotlin logger
