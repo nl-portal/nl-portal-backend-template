@@ -95,7 +95,7 @@ dependencies {
     // Spring
     implementation("org.springframework.boot:spring-boot-starter")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    implementation("org.springframework.boot:spring-boot-starter-webflux:3.2.0")
+    implementation("org.springframework.boot:spring-boot-starter-webflux:3.2.1")
     implementation("org.springframework.security.oauth:spring-security-oauth2:2.5.2.RELEASE")
 
     // Kotlin logger
