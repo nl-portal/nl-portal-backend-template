@@ -6,11 +6,11 @@ plugins {
     id("org.springframework.boot") version "3.2.1"
     id("io.spring.dependency-management") version "1.1.4"
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.9.21"
-    id("org.jetbrains.kotlin.plugin.jpa") version "1.9.21"
+    id("org.jetbrains.kotlin.jvm") version "1.9.22"
+    id("org.jetbrains.kotlin.plugin.jpa") version "1.9.22"
     // IntelliJ IDEA
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
-    id("org.jetbrains.kotlin.plugin.spring") version "1.9.21"
+    id("org.jetbrains.kotlin.plugin.spring") version "1.9.22"
 
     // Linting
     id("org.jlleitschuh.gradle.ktlint") version "12.0.3"
@@ -95,7 +95,7 @@ dependencies {
     // Spring
     implementation("org.springframework.boot:spring-boot-starter")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    implementation("org.springframework.boot:spring-boot-starter-webflux:3.2.0")
+    implementation("org.springframework.boot:spring-boot-starter-webflux:3.2.1")
     implementation("org.springframework.security.oauth:spring-security-oauth2:2.5.2.RELEASE")
 
     // Kotlin logger
