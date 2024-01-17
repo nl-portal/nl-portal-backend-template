@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import java.net.URI
+
 buildscript {
     apply("gradle/environment.gradle.kts")
 }
@@ -13,7 +16,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.spring") version "1.9.22"
 
     // Linting
-    id("org.jlleitschuh.gradle.ktlint") version "12.0.3"
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
 }
 
 apply("gradle/test.gradle.kts")
@@ -25,10 +28,14 @@ sourceSets {
     }
 }
 
-tasks.compileKotlin {
-    kotlinOptions.jvmTarget = "21"
-    kotlinOptions.apiVersion = "2.1"
-    kotlinOptions.languageVersion = "2.1"
+tasks.withType<KotlinCompile> {
+    println("Configuring KotlinCompile $name in project ${project.name}...")
+    kotlinOptions {
+        languageVersion = "2.1"
+        apiVersion = "2.1"
+        jvmTarget = "21"
+        freeCompilerArgs = listOf("-Xjsr305=strict", "-Xemit-jvm-type-annotations")
+    }
 }
 
 group = "nl.nl-portal.backend"
@@ -37,24 +44,22 @@ java.sourceCompatibility = JavaVersion.VERSION_21
 
 repositories {
     mavenCentral()
-    maven { url = uri("https://plugins.gradle.org/m2/") }
-    maven {
-        url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-        mavenContent { snapshotsOnly() }
-    }
-    maven {
-        url = uri("https://maven.pkg.github.com/nl-portal/nl-portal-backend-libraries")
-        credentials {
-            username = project.findProperty("gpr.user") as String? ?: System.getenv("GRP_USER")
-            password = project.findProperty("gpr.key") as String? ?: System.getenv("GRP_TOKEN")
-        }
-    }
+    maven(URI("https://repository.jboss.org/nexus/content/repositories/releases"))
+    maven(URI("https://oss.sonatype.org/content/repositories/releases"))
+    maven(URI("https://app.camunda.com/nexus/content/groups/public"))
+    maven(URI("https://s01.oss.sonatype.org/content/groups/staging/"))
+    maven(URI("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
 }
 
 allprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
 }
 
+val okHttp3 = "4.12.0"
+val springSecurityOAuth = "2.5.2.RELEASE"
+val kotlinLogging = "3.0.5"
+val mockitoKotlin = "5.1.0"
+val kotlinCoroutines = "1.7.3"
 val backend_libraries_release_version = "1.3.0"
 val backend_libraries_version =
     if (project.hasProperty("libraryVersion") && project.property("libraryVersion").toString().trim() != "") {
@@ -65,6 +70,7 @@ val backend_libraries_version =
 println("Version of nl-portal-backend-libraries '${backend_libraries_version}' will be deployed")
 
 dependencies {
+    // NL Portal Library dependencies
     implementation("nl.nl-portal:case:$backend_libraries_version")
     implementation("nl.nl-portal:form:$backend_libraries_version")
     implementation("nl.nl-portal:graphql:$backend_libraries_version")
@@ -83,29 +89,36 @@ dependencies {
     // implementation("nl.nl-portal:haalcentraal-brp:$backend_libraries_version")
     // implementation("nl.nl-portal:haalcentraal-hr:$backend_libraries_version")
     implementation("nl.nl-portal:klant:$backend_libraries_version")
-    if (!backend_libraries_version!!.equals("0.3.0.RELEASE")) {
-        implementation("nl.nl-portal:klant-generiek:$backend_libraries_version")
-        implementation("nl.nl-portal:klantcontactmomenten:$backend_libraries_version")
-    }
+    implementation("nl.nl-portal:klant-generiek:$backend_libraries_version")
+    implementation("nl.nl-portal:klantcontactmomenten:$backend_libraries_version")
     implementation("nl.nl-portal:messaging:$backend_libraries_version")
     implementation("nl.nl-portal:product:$backend_libraries_version")
     implementation("nl.nl-portal:common-ground-authentication:$backend_libraries_version")
     implementation("nl.nl-portal:common-ground-authentication-test:$backend_libraries_version")
 
-    // Spring
+    // Spring dependencies
     implementation("org.springframework.boot:spring-boot-starter")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    implementation("org.springframework.boot:spring-boot-starter-webflux:3.2.1")
-    implementation("org.springframework.security.oauth:spring-security-oauth2:2.5.2.RELEASE")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.security.oauth:spring-security-oauth2:$springSecurityOAuth")
 
-    // Kotlin logger
-    implementation("io.github.microutils:kotlin-logging:3.0.5")
+    // Kotlin logger dependency
+    implementation("io.github.microutils:kotlin-logging:$kotlinLogging")
 
-    // Postgres
+    // Postgres dependency
     implementation("org.postgresql:postgresql")
+
+    // Test dependencies
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("com.squareup.okhttp3:okhttp:$okHttp3")
+    testImplementation("com.squareup.okhttp3:mockwebserver:$okHttp3")
+    testImplementation("com.squareup.okhttp3:okhttp-tls:$okHttp3")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:$mockitoKotlin")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinCoroutines")
 }
 
-tasks.test {
+tasks.withType<Test> {
     useJUnitPlatform()
 }
+
 apply(from = "gradle/deployment.gradle")
