@@ -44,9 +44,7 @@ java.sourceCompatibility = JavaVersion.VERSION_21
 
 repositories {
     mavenCentral()
-    maven(URI("https://repository.jboss.org/nexus/content/repositories/releases"))
     maven(URI("https://oss.sonatype.org/content/repositories/releases"))
-    maven(URI("https://app.camunda.com/nexus/content/groups/public"))
     maven(URI("https://s01.oss.sonatype.org/content/groups/staging/"))
     maven(URI("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
 }
