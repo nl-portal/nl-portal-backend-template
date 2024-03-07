@@ -13,7 +13,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.jpa") version "1.9.22"
     // IntelliJ IDEA
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
-    id("org.jetbrains.kotlin.plugin.spring") version "1.9.22"
+    id("org.jetbrains.kotlin.plugin.spring") version "1.9.23"
 
     // Linting
     id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
