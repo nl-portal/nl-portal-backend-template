@@ -56,7 +56,7 @@ allprojects {
 val okHttp3 = "4.12.0"
 val springSecurityOAuth = "2.5.2.RELEASE"
 val kotlinLogging = "3.0.5"
-val mockitoKotlin = "5.2.1"
+val mockitoKotlin = "5.3.1"
 val kotlinCoroutines = "1.7.3"
 val backend_libraries_release_version = "1.3.0"
 val backend_libraries_version =
