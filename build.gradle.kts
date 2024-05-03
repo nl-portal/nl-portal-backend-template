@@ -7,7 +7,7 @@ buildscript {
 
 plugins {
     id("org.springframework.boot") version "3.2.2"
-    id("io.spring.dependency-management") version "1.1.4"
+    id("io.spring.dependency-management") version "1.1.5"
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.9.22"
     id("org.jetbrains.kotlin.plugin.jpa") version "1.9.22"
