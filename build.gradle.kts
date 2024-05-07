@@ -10,7 +10,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.4"
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.9.22"
-    id("org.jetbrains.kotlin.plugin.jpa") version "1.9.22"
+    id("org.jetbrains.kotlin.plugin.jpa") version "1.9.24"
     // IntelliJ IDEA
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
     id("org.jetbrains.kotlin.plugin.spring") version "1.9.22"
