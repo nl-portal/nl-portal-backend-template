@@ -16,7 +16,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.spring") version "1.9.22"
 
     // Linting
-    id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
 }
 
 apply("gradle/test.gradle.kts")
