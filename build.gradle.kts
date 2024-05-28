@@ -1,4 +1,5 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 import java.net.URI
 
 buildscript {
@@ -6,17 +7,17 @@ buildscript {
 }
 
 plugins {
-    id("org.springframework.boot") version "3.2.2"
-    id("io.spring.dependency-management") version "1.1.4"
+    id("org.springframework.boot") version "3.3.0"
+    id("io.spring.dependency-management") version "1.1.5"
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.9.22"
-    id("org.jetbrains.kotlin.plugin.jpa") version "1.9.22"
+    id("org.jetbrains.kotlin.jvm") version "2.0.0"
+    id("org.jetbrains.kotlin.plugin.jpa") version "2.0.0"
     // IntelliJ IDEA
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
-    id("org.jetbrains.kotlin.plugin.spring") version "1.9.22"
+    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.8"
+    id("org.jetbrains.kotlin.plugin.spring") version "2.0.0"
 
     // Linting
-    id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
 }
 
 apply("gradle/test.gradle.kts")
@@ -28,13 +29,11 @@ sourceSets {
     }
 }
 
-tasks.withType<KotlinCompile> {
-    println("Configuring KotlinCompile $name in project ${project.name}...")
-    kotlinOptions {
-        languageVersion = "2.1"
-        apiVersion = "2.1"
-        jvmTarget = "21"
-        freeCompilerArgs = listOf("-Xjsr305=strict", "-Xemit-jvm-type-annotations")
+tasks.withType<KotlinJvmCompile>().configureEach {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_21)
+        freeCompilerArgs.add("-Xjsr305=strict")
+        freeCompilerArgs.add("-Xemit-jvm-type-annotations")
     }
 }
 
@@ -53,12 +52,12 @@ allprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
 }
 
+val backend_libraries_release_version = "1.4.4-SNAPSHOT"
 val okHttp3 = "4.12.0"
 val springSecurityOAuth = "2.5.2.RELEASE"
 val kotlinLogging = "3.0.5"
-val mockitoKotlin = "5.2.1"
-val kotlinCoroutines = "1.7.3"
-val backend_libraries_release_version = "1.3.0"
+val mockitoKotlin = "5.3.1"
+val kotlinCoroutines = "1.8.1"
 val backend_libraries_version =
     if (project.hasProperty("libraryVersion") && project.property("libraryVersion").toString().trim() != "") {
         project.property("libraryVersion")
