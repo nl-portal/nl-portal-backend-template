@@ -22,3 +22,12 @@ trim_trailing_whitespace = false
 [{package,bower}.json]
 indent_style = space
 indent_size = 2
+
+[{*.kt,*.kts}]
+ktlint_standard_import-ordering=disabled
+ktlint_standard_property-naming=disabled
+ktlint_standard_max-line-length=disabled
+ktlint_standard_no-wildcard-imports=disabled
+ktlint_standard_package-name=disabled
+ij_kotlin_allow_trailing_comma_on_call_site=true
+ij_kotlin_allow_trailing_comma=true

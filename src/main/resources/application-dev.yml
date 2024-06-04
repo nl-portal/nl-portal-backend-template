@@ -1,6 +1,18 @@
 server:
     port: 8090
 
+management:
+    endpoint:
+        health:
+            enabled: true
+            probes:
+                enabled: true
+    endpoints:
+        web:
+            exposure:
+                include: health
+        enabled-by-default: false
+
 spring:
     application:
         name: portal-backend-template
@@ -24,14 +36,15 @@ logging:
             springframework:
                 amqp: DEBUG
 
-valtimo:
+nl-portal:
     openzaak:
         url: http://localhost:8001
         clientId: gzac
         secret: # set with environment variable
-    cors:
-        -   path: "/**"
-            config:
-                allowedHeaders: "*"
-                allowedOrigins: "*"
-                allowedMethods: "*"
+    security:
+        cors:
+            -   path: "/**"
+                config:
+                    allowedHeaders: "*"
+                    allowedOrigins: "*"
+                    allowedMethods: "*"
