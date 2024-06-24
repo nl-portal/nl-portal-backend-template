@@ -7,7 +7,7 @@ buildscript {
 }
 
 plugins {
-    id("org.springframework.boot") version "3.3.0"
+    id("org.springframework.boot") version "3.3.1"
     id("io.spring.dependency-management") version "1.1.5"
     id("java")
     id("org.jetbrains.kotlin.jvm") version "2.0.0"
@@ -52,7 +52,7 @@ allprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
 }
 
-val backend_libraries_release_version = "1.4.4-SNAPSHOT"
+val backend_libraries_release_version = "1.4.9-SNAPSHOT"
 val okHttp3 = "4.12.0"
 val springSecurityOAuth = "2.5.2.RELEASE"
 val kotlinLogging = "3.0.5"
@@ -90,6 +90,7 @@ dependencies {
     implementation("nl.nl-portal:klantcontactmomenten:$backend_libraries_version")
     implementation("nl.nl-portal:messaging:$backend_libraries_version")
     implementation("nl.nl-portal:product:$backend_libraries_version")
+    implementation("nl.nl-portal:payment:$backend_libraries_version")
     implementation("nl.nl-portal:common-ground-authentication:$backend_libraries_version")
     implementation("nl.nl-portal:common-ground-authentication-test:$backend_libraries_version")
 
