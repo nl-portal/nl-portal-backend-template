@@ -52,7 +52,7 @@ allprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
 }
 
-val backend_libraries_release_version = "1.4.9-SNAPSHOT"
+val backend_libraries_release_version = "1.4.26-SNAPSHOT"
 val okHttp3 = "4.12.0"
 val springSecurityOAuth = "2.5.2.RELEASE"
 val kotlinLogging = "3.0.5"
@@ -64,6 +64,7 @@ val backend_libraries_version =
     } else {
         backend_libraries_release_version
     }
+
 println("Version of nl-portal-backend-libraries '${backend_libraries_version}' will be deployed")
 
 dependencies {
@@ -91,6 +92,7 @@ dependencies {
     implementation("nl.nl-portal:messaging:$backend_libraries_version")
     implementation("nl.nl-portal:product:$backend_libraries_version")
     implementation("nl.nl-portal:payment:$backend_libraries_version")
+    implementation("nl.nl-portal:berichten:$backend_libraries_version")
     implementation("nl.nl-portal:common-ground-authentication:$backend_libraries_version")
     implementation("nl.nl-portal:common-ground-authentication-test:$backend_libraries_version")
 
