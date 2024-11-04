@@ -1,3 +1,5 @@
+# Values here are setup to work with the nl-portal-docker-compose repository
+
 server:
     port: 8080
 
