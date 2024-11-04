@@ -10,7 +10,7 @@ This is the backend of the portal template
 * Nl Portal docker compose: https://github.com/nl-portal/nl-portal-docker-compose
 
 ### Required environment variables
-For the project to run without errors, you need the .env.properties file in your spring application.
+For the project to run without errors, you need the .env.properties file in your spring application. This does assume you are running the docker compose from the [nl-portal-docker-compose](https://github.com/nl-portal/nl-portal-docker-compose) repository.
 
   
 # Running, Stopping and Cleaning

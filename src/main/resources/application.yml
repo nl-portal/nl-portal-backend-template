@@ -20,7 +20,7 @@ spring:
         oauth2:
             resourceserver:
                 jwt:
-                    issuer-uri: http://localhost:8082/auth/realms/master
+                    issuer-uri: http://localhost:8082/auth/realms/nlportal
     liquibase:
         enabled: false
     datasource:
@@ -33,11 +33,17 @@ spring:
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQLDialect
 
+keycloak:
+    resource: gzac-portal-m2m
+    audience: gzac-portal-token-exchange
+    credentials:
+        secret: ookVRUAxmEWMcosfcGR5nxeoUC4Rgwbc
 graphql:
     packages:
         - "nl.nlportal"
 logging:
     level:
+        root: DEBUG
         org:
             springframework:
                 amqp: DEBUG
@@ -52,7 +58,7 @@ nl-portal:
             clientId: valtimo_client
             secret: e09b8bc5-5831-4618-ab28-41411304309d
             rsin: "051845623"
-            documentTypeUrl: http://localhost:8001/catalogi/api/v1/informatieobjecttypen/efc332f2-be3b-4bad-9e3c-49a6219c92ad
+            documentTypeUrl: http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/efc332f2-be3b-4bad-9e3c-49a6219c92ad
         zakenapi:
             url: http://localhost:8001
             clientId: valtimo_client
@@ -74,8 +80,8 @@ nl-portal:
                     - gearchiveerd
         taak:
             taakobject:
-                typeUrl: "http://localhost:8011/api/v1/objecttypes/3e852115-277a-4570-873a-9a64be3aeb34"
-                type-url-v2: "http://localhost:8011/api/v1/objecttypes/3e852115-277a-4570-873a-9a64be3aeb34"
+                typeUrl: "http://host.docker.internal:8011/api/v1/objecttypes/3e852115-277a-4570-873a-9a64be3aeb34"
+                type-url-v2: "http://host.docker.internal:8011/api/v1/objecttypes/3e852115-277a-4570-873a-9a64be3aeb34"
         documentenapis:
             #virusscan:
             #clamav:
@@ -88,13 +94,13 @@ nl-portal:
                     clientId: valtimo_client
                     secret: e09b8bc5-5831-4618-ab28-41411304309d
                     rsin: "051845623"
-                    documentTypeUrl: http://localhost:8001/catalogi/api/v1/informatieobjecttypen/efc332f2-be3b-4bad-9e3c-49a6219c92ad
+                    documentTypeUrl: http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/efc332f2-be3b-4bad-9e3c-49a6219c92ad
                 dummydoc:
                     url: http://localhost:8002/documenten/api/v1
                     clientId: docdoc
                     secret: e09b8bc5-5831-4618-ab28-41411304309d
         berichten:
-            bericht-object-type-url: http://localhost:8011/api/v1/objecttypes/78731088-430f-49fd-9a4c-80ddd42ded28
+            bericht-object-type-url: http://host.docker.internal:8011/api/v1/objecttypes/78731088-430f-49fd-9a4c-80ddd42ded28
     openklant:
         url: http://localhost:8006
         clientId: valtimo_client
