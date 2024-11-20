@@ -7,14 +7,14 @@ buildscript {
 }
 
 plugins {
-    id("org.springframework.boot") version "3.3.1"
-    id("io.spring.dependency-management") version "1.1.5"
+    id("org.springframework.boot") version "3.3.5"
+    id("io.spring.dependency-management") version "1.1.6"
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "2.0.0"
-    id("org.jetbrains.kotlin.plugin.jpa") version "2.0.0"
+    id("org.jetbrains.kotlin.jvm") version "2.0.21"
+    id("org.jetbrains.kotlin.plugin.jpa") version "2.0.21"
     // IntelliJ IDEA
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.8"
-    id("org.jetbrains.kotlin.plugin.spring") version "2.0.0"
+    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.9"
+    id("org.jetbrains.kotlin.plugin.spring") version "2.0.21"
 
     // Linting
     id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
@@ -56,8 +56,8 @@ val backend_libraries_release_version = "1.4.26-SNAPSHOT"
 val okHttp3 = "4.12.0"
 val springSecurityOAuth = "2.5.2.RELEASE"
 val kotlinLogging = "3.0.5"
-val mockitoKotlin = "5.3.1"
-val kotlinCoroutines = "1.8.1"
+val mockitoKotlin = "5.4.0"
+val kotlinCoroutines = "1.9.0"
 val backend_libraries_version =
     if (project.hasProperty("libraryVersion") && project.property("libraryVersion").toString().trim() != "") {
         project.property("libraryVersion")
