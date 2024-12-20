@@ -57,7 +57,7 @@ val okHttp3 = "4.12.0"
 val springSecurityOAuth = "2.5.2.RELEASE"
 val kotlinLogging = "3.0.5"
 val mockitoKotlin = "5.4.0"
-val kotlinCoroutines = "1.9.0"
+val kotlinCoroutines = "1.10.1"
 val backend_libraries_version =
     if (project.hasProperty("libraryVersion") && project.property("libraryVersion").toString().trim() != "") {
         project.property("libraryVersion")
