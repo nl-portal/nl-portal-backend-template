@@ -13,7 +13,7 @@ plugins {
     id("org.jetbrains.kotlin.jvm") version "2.0.21"
     id("org.jetbrains.kotlin.plugin.jpa") version "2.0.21"
     // IntelliJ IDEA
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.9"
+    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.10"
     id("org.jetbrains.kotlin.plugin.spring") version "2.0.21"
 
     // Linting
