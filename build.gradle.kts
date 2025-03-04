@@ -7,17 +7,17 @@ buildscript {
 }
 
 plugins {
-    id("org.springframework.boot") version "3.3.5"
-    id("io.spring.dependency-management") version "1.1.6"
+    id("org.springframework.boot") version "3.4.3"
+    id("io.spring.dependency-management") version "1.1.7"
     id("java")
     id("org.jetbrains.kotlin.jvm") version "2.0.21"
     id("org.jetbrains.kotlin.plugin.jpa") version "2.0.21"
     // IntelliJ IDEA
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.9"
+    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.10"
     id("org.jetbrains.kotlin.plugin.spring") version "2.0.21"
 
     // Linting
-    id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
+    id("org.jlleitschuh.gradle.ktlint") version "12.2.0"
 }
 
 apply("gradle/test.gradle.kts")
@@ -55,9 +55,9 @@ allprojects {
 val backend_libraries_release_version = "1.4.26-SNAPSHOT"
 val okHttp3 = "4.12.0"
 val springSecurityOAuth = "2.5.2.RELEASE"
-val kotlinLogging = "3.0.5"
+val kotlinLogging = "7.0.4"
 val mockitoKotlin = "5.4.0"
-val kotlinCoroutines = "1.9.0"
+val kotlinCoroutines = "1.10.1"
 val backend_libraries_version =
     if (project.hasProperty("libraryVersion") && project.property("libraryVersion").toString().trim() != "") {
         project.property("libraryVersion")
@@ -103,7 +103,7 @@ dependencies {
     implementation("org.springframework.security.oauth:spring-security-oauth2:$springSecurityOAuth")
 
     // Kotlin logger dependency
-    implementation("io.github.microutils:kotlin-logging:$kotlinLogging")
+    implementation("io.github.oshai:kotlin-logging:$kotlinLogging")
 
     // Postgres dependency
     implementation("org.postgresql:postgresql")
