@@ -3,13 +3,7 @@ name: Build and Push Docker Image
 on:
     push:
         branches:
-            - 'feature/**'
-            - 'bugfix/**'
-    pull_request_target:
-        branches:
-            - 'development'
-            - 'rc/**'
-            - 'hotfix/**'
+            - "main"
     workflow_dispatch:
 
 env:
