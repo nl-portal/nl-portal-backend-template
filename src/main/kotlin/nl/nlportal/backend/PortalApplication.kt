@@ -1,7 +1,7 @@
 package nl.nlportal.backend
 
+import io.github.oshai.kotlinlogging.KotlinLogging
 import java.net.InetAddress
-import mu.KotlinLogging
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.core.env.Environment
