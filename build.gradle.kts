@@ -52,7 +52,7 @@ allprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
 }
 
-val backend_libraries_release_version = "1.4.26-SNAPSHOT"
+val backend_libraries_release_version = "1.5.0"
 val okHttp3 = "4.12.0"
 val springSecurityOAuth = "2.5.2.RELEASE"
 val kotlinLogging = "7.0.4"
