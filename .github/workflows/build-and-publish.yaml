@@ -35,8 +35,8 @@ jobs:
                   ts=$(date +'%Y%m%d%H%M')
                   echo "image_tag=${branch}-${ts}-${sha}" >> "$GITHUB_OUTPUT"
 
-            - name: Unit test
-              run: ./gradlew clean test
+            - name: Clean build
+              run: ./gradlew clean
 
             - name: Build artifacts
               run: ./gradlew build
