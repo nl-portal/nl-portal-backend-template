@@ -92,6 +92,7 @@ jobs:
                 id: build-and-push
                 with:
                     file: Dockerfile
+                    platforms: linux/arm64,linux/amd64
                     context: .
                     push: true
                     tags: ${{ steps.docker_meta.outputs.tags }}
