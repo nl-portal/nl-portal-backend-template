@@ -75,7 +75,7 @@ jobs:
                     name: nl-portal-backend-build
 
             -   name: 'Login to github packages'
-                uses: docker/login-action@v1
+                uses: docker/login-action@v3
                 with:
                     registry: ${{ env.GITHUB_REGISTRY }}
                     username: ${{ github.actor }}
